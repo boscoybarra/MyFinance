@@ -21,8 +21,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0RX-sw-3X8">
+                                <rect key="frame" x="132" y="233" width="111" height="39.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00€" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8T-Zg-Tvg">
+                                        <rect key="frame" x="0.0" y="0.0" width="111" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bitcoin Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ibf-e6-Lpw">
+                                        <rect key="frame" x="0.0" y="21.5" width="111" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="psJ-ds-bzA">
-                                <rect key="frame" x="136" y="311.5" width="103.5" height="44.5"/>
+                                <rect key="frame" x="136.5" y="311.5" width="103.5" height="44.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00€" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MnF-OU-iJg">
                                         <rect key="frame" x="0.0" y="0.0" width="103.5" height="21.5"/>
@@ -41,12 +58,16 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="0RX-sw-3X8" firstAttribute="centerX" secondItem="rNV-qE-s3A" secondAttribute="centerX" id="08y-Oi-PJi"/>
+                            <constraint firstItem="0RX-sw-3X8" firstAttribute="leading" secondItem="rNV-qE-s3A" secondAttribute="leading" constant="132" id="QtF-YR-b99"/>
                             <constraint firstItem="psJ-ds-bzA" firstAttribute="centerY" secondItem="82F-HK-Bje" secondAttribute="centerY" id="UXB-D2-Ngf"/>
                             <constraint firstItem="psJ-ds-bzA" firstAttribute="centerX" secondItem="82F-HK-Bje" secondAttribute="centerX" id="YZr-9y-5MH"/>
+                            <constraint firstItem="psJ-ds-bzA" firstAttribute="top" secondItem="0RX-sw-3X8" secondAttribute="bottom" constant="39" id="uCr-cU-hAa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rNV-qE-s3A"/>
                     </view>
                     <connections>
+                        <outlet property="bitcoinValueLabel" destination="I8T-Zg-Tvg" id="pfg-le-3Mb"/>
                         <outlet property="etherValueLabel" destination="MnF-OU-iJg" id="kB5-v4-W2o"/>
                     </connections>
                 </viewController>

@@ -10,9 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var bitcoinValueLabel: UILabel!
     @IBOutlet weak var etherValueLabel: UILabel!
     
     let apiURL = URL(string: "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=EUR")
+    let apiURLBitcoin = URL(string: "https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=EUR")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +23,10 @@ class ViewController: UIViewController {
         
         //guard statement ensures apiURL is safely unwrapped and ready to be used to fetch that data.
         guard let apiURL = apiURL else {
+            return
+        }
+        
+        guard let apiURLBitcoin = apiURLBitcoin else {
             return
         }
         
@@ -33,6 +39,16 @@ class ViewController: UIViewController {
                 self.etherValueLabel.text = self.formatAsCurrencyString(value: value) ?? "Failed"
             }
         }
+        
+        makeValueGETRequest(url: apiURLBitcoin) { (value) in
+            
+            // Must update the UI on the main thread since makeValueGetRequest is a background operation
+            DispatchQueue.main.async {
+                self.bitcoinValueLabel.text = self.formatAsCurrencyString(value: value) ?? "Failed"
+            }
+        }
+        
+        
     }
     
     private func makeValueGETRequest(url: URL, completion: @escaping (_ value: NSNumber?) -> Void) {
