@@ -11,14 +11,28 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var bitcoinValueLabel: UILabel!
+    @IBOutlet weak var bitcoinCashValueLabel: UILabel!
     @IBOutlet weak var etherValueLabel: UILabel!
     
     let apiURL = URL(string: "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=EUR")
     let apiURLBitcoin = URL(string: "https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=EUR")
+    let apiURLBitcoinCash = URL(string: "https://min-api.cryptocompare.com/data/price?fsym=BCH&tsyms=EUR")
+    var timer = Timer()
+
+
+    
+    func scheduledTimerWithTimeInterval(){
+        // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.checkForCryptoPrices), userInfo: nil, repeats: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        scheduledTimerWithTimeInterval()
+    }
+    
+    
+    @objc func checkForCryptoPrices() {
         //By default, URL objects initialized with a String are optional since the URL could potentially return nil if the String resolves to an invalid web address.
         
         //guard statement ensures apiURL is safely unwrapped and ready to be used to fetch that data.
@@ -27,6 +41,10 @@ class ViewController: UIViewController {
         }
         
         guard let apiURLBitcoin = apiURLBitcoin else {
+            return
+        }
+        
+        guard let apiURLBitcoinCash = apiURLBitcoinCash else {
             return
         }
         
@@ -48,10 +66,17 @@ class ViewController: UIViewController {
             }
         }
         
+        makeValueGETRequest(url: apiURLBitcoinCash) { (value) in
+            
+            // Must update the UI on the main thread since makeValueGetRequest is a background operation
+            DispatchQueue.main.async {
+                self.bitcoinCashValueLabel.text = self.formatAsCurrencyString(value: value) ?? "Failed"
+            }
+        }
         
     }
     
-    private func makeValueGETRequest(url: URL, completion: @escaping (_ value: NSNumber?) -> Void) {
+    @objc private func makeValueGETRequest(url: URL, completion: @escaping (_ value: NSNumber?) -> Void) {
         
         let request = URLSession.shared.dataTask(with: url) { (data, response, error) in
             
