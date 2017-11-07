@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		290043F21FB22899007532AF /* MYFClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290043F11FB22899007532AF /* MYFClient.swift */; };
+		290043F41FB228B1007532AF /* MYFConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290043F31FB228B1007532AF /* MYFConstants.swift */; };
+		290043F61FB228C8007532AF /* MYFConvinience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290043F51FB228C7007532AF /* MYFConvinience.swift */; };
+		290043F81FB22913007532AF /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290043F71FB22913007532AF /* GCD.swift */; };
 		295150631FAF9F8200A6107B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295150621FAF9F8200A6107B /* AppDelegate.swift */; };
 		295150651FAF9F8200A6107B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295150641FAF9F8200A6107B /* ViewController.swift */; };
 		295150681FAF9F8200A6107B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 295150661FAF9F8200A6107B /* Main.storyboard */; };
@@ -35,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		290043F11FB22899007532AF /* MYFClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYFClient.swift; sourceTree = "<group>"; };
+		290043F31FB228B1007532AF /* MYFConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYFConstants.swift; sourceTree = "<group>"; };
+		290043F51FB228C7007532AF /* MYFConvinience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYFConvinience.swift; sourceTree = "<group>"; };
+		290043F71FB22913007532AF /* GCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
 		2951505F1FAF9F8200A6107B /* MyFinance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFinance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		295150621FAF9F8200A6107B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		295150641FAF9F8200A6107B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +84,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		290043EB1FB227B6007532AF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				295150641FAF9F8200A6107B /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		290043EC1FB227C9007532AF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				290043EF1FB22844007532AF /* Client */,
+				295150691FAF9F8200A6107B /* MyFinance.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		290043ED1FB227D6007532AF /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				295150661FAF9F8200A6107B /* Main.storyboard */,
+				2951506E1FAF9F8200A6107B /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		290043EE1FB227EF007532AF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2951506C1FAF9F8200A6107B /* Assets.xcassets */,
+				295150711FAF9F8200A6107B /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		290043EF1FB22844007532AF /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				290043F01FB22863007532AF /* MYF */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		290043F01FB22863007532AF /* MYF */ = {
+			isa = PBXGroup;
+			children = (
+				290043F11FB22899007532AF /* MYFClient.swift */,
+				290043F31FB228B1007532AF /* MYFConstants.swift */,
+				290043F51FB228C7007532AF /* MYFConvinience.swift */,
+			);
+			path = MYF;
+			sourceTree = "<group>";
+		};
 		295150561FAF9F8200A6107B = {
 			isa = PBXGroup;
 			children = (
@@ -100,12 +161,11 @@
 			isa = PBXGroup;
 			children = (
 				295150621FAF9F8200A6107B /* AppDelegate.swift */,
-				295150641FAF9F8200A6107B /* ViewController.swift */,
-				295150661FAF9F8200A6107B /* Main.storyboard */,
-				2951506C1FAF9F8200A6107B /* Assets.xcassets */,
-				2951506E1FAF9F8200A6107B /* LaunchScreen.storyboard */,
-				295150711FAF9F8200A6107B /* Info.plist */,
-				295150691FAF9F8200A6107B /* MyFinance.xcdatamodeld */,
+				290043F71FB22913007532AF /* GCD.swift */,
+				290043EB1FB227B6007532AF /* Controller */,
+				290043ED1FB227D6007532AF /* Storyboards */,
+				290043EC1FB227C9007532AF /* Model */,
+				290043EE1FB227EF007532AF /* Supporting Files */,
 			);
 			path = MyFinance;
 			sourceTree = "<group>";
@@ -262,7 +322,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				290043F81FB22913007532AF /* GCD.swift in Sources */,
+				290043F41FB228B1007532AF /* MYFConstants.swift in Sources */,
 				295150651FAF9F8200A6107B /* ViewController.swift in Sources */,
+				290043F61FB228C8007532AF /* MYFConvinience.swift in Sources */,
+				290043F21FB22899007532AF /* MYFClient.swift in Sources */,
 				295150631FAF9F8200A6107B /* AppDelegate.swift in Sources */,
 				2951506B1FAF9F8200A6107B /* MyFinance.xcdatamodeld in Sources */,
 			);
