@@ -21,18 +21,35 @@ class ViewController: UIViewController {
 
 
     
-    func scheduledTimerWithTimeInterval(){
-        // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.checkForCryptoPrices), userInfo: nil, repeats: true)
-    }
+//    func scheduledTimerWithTimeInterval(){
+//        // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
+//        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.getCrypto), userInfo: nil, repeats: true)
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scheduledTimerWithTimeInterval()
+        getCrypto()
+        //scheduledTimerWithTimeInterval()
+    }
+    
+    fileprivate func getCrypto() {
+
+        do {
+            
+            MYFClient.getCrypto(completionHandler: createCryptoPricesFromURLs)
+            
+        } catch {
+            print("Failed to get photos")
+            print(error.localizedDescription)
+            self.presentErrorAlertController("Oops!", alertMessage: "There was an error loading your photos")
+        }
+        
     }
     
     
-    @objc func checkForCryptoPrices() {
+    func createCryptoPricesFromURLs(urls: String?, error: Error?) {
+        
+        print("This is what I gat", urls)
         //By default, URL objects initialized with a String are optional since the URL could potentially return nil if the String resolves to an invalid web address.
         
         //guard statement ensures apiURL is safely unwrapped and ready to be used to fetch that data.
@@ -49,69 +66,34 @@ class ViewController: UIViewController {
         }
         
         // Make the GET request for our API URL to get the value NSNumber
-        makeValueGETRequest(url: apiURL) { (value) in
-            
-            // Must update the UI on the main thread since makeValueGetRequest is a background operation
-            DispatchQueue.main.async {
-                // Set the etherValueLabel with the formatted USD value or "Failed" in the case of failure
-                self.etherValueLabel.text = self.formatAsCurrencyString(value: value) ?? "Failed"
-            }
-        }
+//        MYFClint.makeValueGETRequest(url: apiURL) { (value) in
+//
+//            // Must update the UI on the main thread since makeValueGetRequest is a background operation
+//            DispatchQueue.main.async {
+//                // Set the etherValueLabel with the formatted USD value or "Failed" in the case of failure
+//                self.etherValueLabel.text = self.formatAsCurrencyString(value: value) ?? "Failed"
+//            }
+//        }
         
-        makeValueGETRequest(url: apiURLBitcoin) { (value) in
-            
-            // Must update the UI on the main thread since makeValueGetRequest is a background operation
-            DispatchQueue.main.async {
-                self.bitcoinValueLabel.text = self.formatAsCurrencyString(value: value) ?? "Failed"
-            }
-        }
+//        MYFClint.makeValueGETRequest(url: apiURLBitcoin) { (value) in
+//
+//            // Must update the UI on the main thread since makeValueGetRequest is a background operation
+//            DispatchQueue.main.async {
+//                self.bitcoinValueLabel.text = self.formatAsCurrencyString(value: value) ?? "Failed"
+//            }
+//        }
         
-        makeValueGETRequest(url: apiURLBitcoinCash) { (value) in
-            
-            // Must update the UI on the main thread since makeValueGetRequest is a background operation
-            DispatchQueue.main.async {
-                self.bitcoinCashValueLabel.text = self.formatAsCurrencyString(value: value) ?? "Failed"
-            }
-        }
+//        MYFClint.makeValueGETRequest(url: apiURLBitcoinCash) { (value) in
+//
+//            // Must update the UI on the main thread since makeValueGetRequest is a background operation
+//            DispatchQueue.main.async {
+//                self.bitcoinCashValueLabel.text = self.formatAsCurrencyString(value: value) ?? "Failed"
+//            }
+//        }
         
     }
     
-    @objc private func makeValueGETRequest(url: URL, completion: @escaping (_ value: NSNumber?) -> Void) {
-        
-        let request = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            
-            guard let data = data, error == nil else {
-                completion(nil)
-                print(error?.localizedDescription ?? "")
-                return
-            }
-            
-            do {
-                guard let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any],
-                    let value = json["EUR"] as? NSNumber else {
-                        completion(nil)
-                        return
-                }
-                completion(value)
-            } catch  {
-                completion(nil)
-                print(error.localizedDescription)
-            }
-        }
-        request.resume()
-    }
-    
-    private func formatAsCurrencyString(value: NSNumber?) -> String? {
-        let formatter = NumberFormatter()
-        formatter.locale = Locale(identifier: "en_EU")
-        formatter.numberStyle = .currency
-        
-        guard let value = value,
-            let formattedCurrencyAmount = formatter.string(from: value) else {
-                return nil
-        }
-        return formattedCurrencyAmount
-    }
+   
     
     
 }

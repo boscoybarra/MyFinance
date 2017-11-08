@@ -19,6 +19,8 @@
 		295150701FAF9F8200A6107B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2951506E1FAF9F8200A6107B /* LaunchScreen.storyboard */; };
 		2951507B1FAF9F8300A6107B /* MyFinanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2951507A1FAF9F8300A6107B /* MyFinanceTests.swift */; };
 		295150861FAF9F8300A6107B /* MyFinanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295150851FAF9F8300A6107B /* MyFinanceUITests.swift */; };
+		29C78C701FB334340028FB9D /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C78C6F1FB334340028FB9D /* Type.swift */; };
+		29C78C731FB339AE0028FB9D /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C78C721FB339AE0028FB9D /* AlertController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		295150811FAF9F8300A6107B /* MyFinanceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyFinanceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		295150851FAF9F8300A6107B /* MyFinanceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFinanceUITests.swift; sourceTree = "<group>"; };
 		295150871FAF9F8300A6107B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29C78C6F1FB334340028FB9D /* Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
+		29C78C721FB339AE0028FB9D /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,8 +164,10 @@
 		295150611FAF9F8200A6107B /* MyFinance */ = {
 			isa = PBXGroup;
 			children = (
+				29C78C721FB339AE0028FB9D /* AlertController.swift */,
 				295150621FAF9F8200A6107B /* AppDelegate.swift */,
 				290043F71FB22913007532AF /* GCD.swift */,
+				29C78C6F1FB334340028FB9D /* Type.swift */,
 				290043EB1FB227B6007532AF /* Controller */,
 				290043ED1FB227D6007532AF /* Storyboards */,
 				290043EC1FB227C9007532AF /* Model */,
@@ -323,12 +329,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				290043F81FB22913007532AF /* GCD.swift in Sources */,
+				29C78C731FB339AE0028FB9D /* AlertController.swift in Sources */,
 				290043F41FB228B1007532AF /* MYFConstants.swift in Sources */,
 				295150651FAF9F8200A6107B /* ViewController.swift in Sources */,
 				290043F61FB228C8007532AF /* MYFConvinience.swift in Sources */,
 				290043F21FB22899007532AF /* MYFClient.swift in Sources */,
 				295150631FAF9F8200A6107B /* AppDelegate.swift in Sources */,
 				2951506B1FAF9F8200A6107B /* MyFinance.xcdatamodeld in Sources */,
+				29C78C701FB334340028FB9D /* Type.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
