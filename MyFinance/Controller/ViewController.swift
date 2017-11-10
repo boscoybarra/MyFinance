@@ -33,63 +33,16 @@ class ViewController: UIViewController {
     }
     
     fileprivate func getCrypto() {
-
-        do {
-            
-            MYFClient.getCrypto(completionHandler: createCryptoPricesFromURLs)
-            
-        } catch {
-            print("Failed to get photos")
-            print(error.localizedDescription)
-            self.presentErrorAlertController("Oops!", alertMessage: "There was an error loading your photos")
-        }
-        
+        MYFClient.getCrypto(completionHandler: createCryptoPricesFromURLs)
     }
     
     
-    func createCryptoPricesFromURLs(urls: String?, error: Error?) {
-        
-        print("This is what I gat", urls)
-        //By default, URL objects initialized with a String are optional since the URL could potentially return nil if the String resolves to an invalid web address.
-        
-        //guard statement ensures apiURL is safely unwrapped and ready to be used to fetch that data.
-        guard let apiURL = apiURL else {
-            return
+    func createCryptoPricesFromURLs(urls: Float?, error: Error?) {
+        let stringFloat =  String(describing: urls!)
+        DispatchQueue.main.async {
+        self.bitcoinValueLabel.text = stringFloat
         }
         
-        guard let apiURLBitcoin = apiURLBitcoin else {
-            return
-        }
-        
-        guard let apiURLBitcoinCash = apiURLBitcoinCash else {
-            return
-        }
-        
-        // Make the GET request for our API URL to get the value NSNumber
-//        MYFClint.makeValueGETRequest(url: apiURL) { (value) in
-//
-//            // Must update the UI on the main thread since makeValueGetRequest is a background operation
-//            DispatchQueue.main.async {
-//                // Set the etherValueLabel with the formatted USD value or "Failed" in the case of failure
-//                self.etherValueLabel.text = self.formatAsCurrencyString(value: value) ?? "Failed"
-//            }
-//        }
-        
-//        MYFClint.makeValueGETRequest(url: apiURLBitcoin) { (value) in
-//
-//            // Must update the UI on the main thread since makeValueGetRequest is a background operation
-//            DispatchQueue.main.async {
-//                self.bitcoinValueLabel.text = self.formatAsCurrencyString(value: value) ?? "Failed"
-//            }
-//        }
-        
-//        MYFClint.makeValueGETRequest(url: apiURLBitcoinCash) { (value) in
-//
-//            // Must update the UI on the main thread since makeValueGetRequest is a background operation
-//            DispatchQueue.main.async {
-//                self.bitcoinCashValueLabel.text = self.formatAsCurrencyString(value: value) ?? "Failed"
-//            }
-//        }
         
     }
     

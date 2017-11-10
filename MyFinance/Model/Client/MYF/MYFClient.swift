@@ -88,6 +88,7 @@ class MYFClient: NSObject {
             
             completionHandler(data as AnyObject, nil)
             
+            
         }
         
         task.resume()
@@ -111,6 +112,8 @@ class MYFClient: NSObject {
         
         
         completionHandler(parsedResult, nil)
+        
+        print("parse result", parsedResult)
         
     }
     
@@ -141,6 +144,17 @@ class MYFClient: NSObject {
         
         return components.url!
     }
+    
+    static func cryptoValuesToCheck() -> String {
+        
+        let BTC = Constants.CryptoParameterValues.currencyBTC
+        let BCH = Constants.CryptoParameterValues.currencyBCH
+        let ETH = Constants.CryptoParameterValues.currencyETH
+        
+        return "\(BTC),\(BCH),\(ETH)"
+    
+    }
+    
     
     
 
