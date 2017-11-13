@@ -110,23 +110,10 @@ class MYFClient: NSObject {
             return
         }
         
-        
         completionHandler(parsedResult, nil)
         
         print("parse result", parsedResult)
         
-    }
-    
-    private func formatAsCurrencyString(value: NSNumber?) -> String? {
-        let formatter = NumberFormatter()
-        formatter.locale = Locale(identifier: "en_EU")
-        formatter.numberStyle = .currency
-        
-        guard let value = value,
-            let formattedCurrencyAmount = formatter.string(from: value) else {
-                return nil
-        }
-        return formattedCurrencyAmount
     }
     
     private static func cryptoURLFromParameters(_ parameters: [String:AnyObject]) -> URL {
@@ -145,7 +132,7 @@ class MYFClient: NSObject {
         return components.url!
     }
     
-    static func cryptoValuesToCheck() -> String {
+    func cryptoValuesToCheck() -> String {
         
         let BTC = Constants.CryptoParameterValues.currencyBTC
         let BCH = Constants.CryptoParameterValues.currencyBCH
@@ -154,10 +141,6 @@ class MYFClient: NSObject {
         return "\(BTC),\(BCH),\(ETH)"
     
     }
-    
-    
-    
 
-    
     
 }

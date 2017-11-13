@@ -16,7 +16,7 @@ extension MYFClient {
         
     //https://min-api.cryptocompare.com/data/pricemulti?fsyms=BCH,BTC,ETH&tsyms=USD,EUR
         
-        let selectedCurrencies = String(describing: MYFClient.cryptoValuesToCheck)
+        let selectedCurrencies = "BTC,BCH,ETH"
         
         let methodParameters = [
             Constants.CryptoParameterKeys.cryptoType: selectedCurrencies,
@@ -36,14 +36,23 @@ extension MYFClient {
                 return
             }
             
-            guard let cryptoDictionary = data![Constants.CryptoParameterValues.currencyBCH] as? [String:AnyObject] else {
+            guard let cryptoinBTC = data![Constants.CryptoParameterValues.currencyBTC] as? [String:AnyObject] else {
                 sendError("Crypto dictionary could not be printed in \(String(describing: data))")
                 return
             }
             
-            print("crypto we have called", cryptoDictionary)
+            guard let cryptoinBCH = data![Constants.CryptoParameterValues.currencyBCH] as? [String:AnyObject] else {
+                sendError("Crypto dictionary could not be printed in \(String(describing: data))")
+                return
+            }
             
-            guard let cryptoInEuro = cryptoDictionary[Constants.CryptoParameterValues.currencyEUR] as? Float else {
+            guard let cryptoinETH = data![Constants.CryptoParameterValues.currencyETH] as? [String:AnyObject] else {
+                sendError("Crypto dictionary could not be printed in \(String(describing: data))")
+                return
+            }
+            
+            
+            guard let cryptoInEuro = cryptoinBTC[Constants.CryptoParameterValues.currencyEUR] as? Float else {
                 sendError("Crypto dictionary could not be printed in \(String(describing: data))")
                 return
             }

@@ -21,29 +21,40 @@ class ViewController: UIViewController {
 
 
     
-//    func scheduledTimerWithTimeInterval(){
-//        // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
-//        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.getCrypto), userInfo: nil, repeats: true)
-//    }
+    func scheduledTimerWithTimeInterval(){
+        // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
+        timer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(self.getCrypto), userInfo: nil, repeats: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getCrypto()
-        //scheduledTimerWithTimeInterval()
+        scheduledTimerWithTimeInterval()
     }
     
-    fileprivate func getCrypto() {
+    @objc fileprivate func getCrypto() {
         MYFClient.getCrypto(completionHandler: createCryptoPricesFromURLs)
     }
     
     
     func createCryptoPricesFromURLs(urls: Float?, error: Error?) {
-        let stringFloat =  String(describing: urls!)
+        let currencyWithFormat = ViewController.formatAsCurrencyString(value: urls! as NSNumber)
         DispatchQueue.main.async {
-        self.bitcoinValueLabel.text = stringFloat
+        self.bitcoinValueLabel.text = currencyWithFormat!
         }
+    }
+    
+    
+    static func formatAsCurrencyString(value: NSNumber?) -> String? {
+        let formatter = NumberFormatter()
+        formatter.locale = Locale(identifier: "en_EU")
+        formatter.numberStyle = .currency
         
-        
+        guard let value = value,
+            let formattedCurrencyAmount = formatter.string(from: value) else {
+                return nil
+        }
+        return formattedCurrencyAmount
     }
     
    
