@@ -8,4 +8,4 @@
 
 import Foundation
 
-typealias cryptoURLsResponse = (Float?, Error?) -> Void
+typealias cryptoURLsResponse = ([Float]?, Error?) -> Void

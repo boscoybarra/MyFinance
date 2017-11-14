@@ -13,17 +13,13 @@ extension MYFClient {
     //MARK: -- Function GETs the values from Crypto
     
     static func getCrypto(completionHandler: @escaping cryptoURLsResponse) {
-        
-    //https://min-api.cryptocompare.com/data/pricemulti?fsyms=BCH,BTC,ETH&tsyms=USD,EUR
-        
-        let selectedCurrencies = "BTC,BCH,ETH"
+      
+        let selectedCurrencies = MYFClient.cryptoValuesToCheck()
         
         let methodParameters = [
             Constants.CryptoParameterKeys.cryptoType: selectedCurrencies,
             Constants.CryptoParameterKeys.currencyType: Constants.CryptoParameterValues.currencyEUR
             ] as [String : Any]
-        
-        print("hello pams", methodParameters)
         
         MYFClient.makeValueGETRequest(methodParameters: methodParameters as [String:AnyObject]) { (data: AnyObject?, error: NSError?) in
             func sendError(_ error: String) {
@@ -52,14 +48,28 @@ extension MYFClient {
             }
             
             
-            guard let cryptoInEuro = cryptoinBTC[Constants.CryptoParameterValues.currencyEUR] as? Float else {
+            guard let cryptoInEuroToBTC = cryptoinBTC[Constants.CryptoParameterValues.currencyEUR] as? Float else {
                 sendError("Crypto dictionary could not be printed in \(String(describing: data))")
                 return
             }
             
-            print("cryptoInEuro", cryptoInEuro)
+            guard let cryptoInEuroToBCH = cryptoinBCH[Constants.CryptoParameterValues.currencyEUR] as? Float else {
+                sendError("Crypto dictionary could not be printed in \(String(describing: data))")
+                return
+            }
             
-            completionHandler(cryptoInEuro, nil)
+            guard let cryptoInEuroToETH = cryptoinETH[Constants.CryptoParameterValues.currencyEUR] as? Float else {
+                sendError("Crypto dictionary could not be printed in \(String(describing: data))")
+                return
+            }
+            
+            var currentCryptos = [Float]()
+            
+            currentCryptos.append(cryptoInEuroToBTC)
+            currentCryptos.append(cryptoInEuroToBCH)
+            currentCryptos.append(cryptoInEuroToETH)
+            
+            completionHandler(currentCryptos, nil)
             
             
 //            let cryptoDictionary = EURStrings
@@ -68,7 +78,6 @@ extension MYFClient {
 //            if cryptoInEUR != "" {
 //
 //                completionHandler(cryptoDictionary, nil)
-//                print("hello eur", EURStrings)
 //
 //            } else {
 //                print("No data from Cryto at this place")
@@ -76,9 +85,6 @@ extension MYFClient {
 //            }
         }
         
-        
     }
-    
-    
     
 }

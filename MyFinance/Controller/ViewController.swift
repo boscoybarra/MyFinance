@@ -10,15 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // MARK: Properties
+    
+    var timer = Timer()
+    
+    // MARK: Outlets
+    
     @IBOutlet weak var bitcoinValueLabel: UILabel!
     @IBOutlet weak var bitcoinCashValueLabel: UILabel!
     @IBOutlet weak var etherValueLabel: UILabel!
-    
-    let apiURL = URL(string: "https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=EUR")
-    let apiURLBitcoin = URL(string: "https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=EUR")
-    let apiURLBitcoinCash = URL(string: "https://min-api.cryptocompare.com/data/price?fsym=BCH&tsyms=EUR")
-    var timer = Timer()
-
 
     
     func scheduledTimerWithTimeInterval(){
@@ -37,28 +37,17 @@ class ViewController: UIViewController {
     }
     
     
-    func createCryptoPricesFromURLs(urls: Float?, error: Error?) {
-        let currencyWithFormat = ViewController.formatAsCurrencyString(value: urls! as NSNumber)
-        DispatchQueue.main.async {
-        self.bitcoinValueLabel.text = currencyWithFormat!
-        }
-    }
-    
-    
-    static func formatAsCurrencyString(value: NSNumber?) -> String? {
-        let formatter = NumberFormatter()
-        formatter.locale = Locale(identifier: "en_EU")
-        formatter.numberStyle = .currency
+    func createCryptoPricesFromURLs(urls: [Float]?, error: Error?) {
+        let bitCoin = MYFClient.formatAsCurrencyString(value: urls![0] as NSNumber)
+        let bitCoinCash = MYFClient.formatAsCurrencyString(value: urls![1] as NSNumber)
+        let etherCoin = MYFClient.formatAsCurrencyString(value: urls![2] as NSNumber)
         
-        guard let value = value,
-            let formattedCurrencyAmount = formatter.string(from: value) else {
-                return nil
+        DispatchQueue.main.async {
+        self.bitcoinValueLabel.text = bitCoin
+        self.bitcoinCashValueLabel.text = bitCoinCash
+        self.etherValueLabel.text = etherCoin
         }
-        return formattedCurrencyAmount
     }
-    
-   
-    
-    
+ 
 }
 
