@@ -11,6 +11,8 @@
 		290043F41FB228B1007532AF /* MYFConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290043F31FB228B1007532AF /* MYFConstants.swift */; };
 		290043F61FB228C8007532AF /* MYFConvinience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290043F51FB228C7007532AF /* MYFConvinience.swift */; };
 		290043F81FB22913007532AF /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290043F71FB22913007532AF /* GCD.swift */; };
+		2916F2D91FBEFA21001A23D2 /* CubicChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2916F2D81FBEFA21001A23D2 /* CubicChart.swift */; };
+		2916F2DB1FBEFA42001A23D2 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2916F2DA1FBEFA42001A23D2 /* ChartViewController.swift */; };
 		295150631FAF9F8200A6107B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295150621FAF9F8200A6107B /* AppDelegate.swift */; };
 		295150651FAF9F8200A6107B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295150641FAF9F8200A6107B /* ViewController.swift */; };
 		295150681FAF9F8200A6107B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 295150661FAF9F8200A6107B /* Main.storyboard */; };
@@ -19,8 +21,6 @@
 		295150701FAF9F8200A6107B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2951506E1FAF9F8200A6107B /* LaunchScreen.storyboard */; };
 		2951507B1FAF9F8300A6107B /* MyFinanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2951507A1FAF9F8300A6107B /* MyFinanceTests.swift */; };
 		295150861FAF9F8300A6107B /* MyFinanceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295150851FAF9F8300A6107B /* MyFinanceUITests.swift */; };
-		2964D4B81FBDB6580053767A /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2964D4B21FBDB5B20053767A /* Charts.framework */; };
-		2964D4B91FBDB6580053767A /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2964D4B21FBDB5B20053767A /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		29C78C701FB334340028FB9D /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C78C6F1FB334340028FB9D /* Type.swift */; };
 		29C78C731FB339AE0028FB9D /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C78C721FB339AE0028FB9D /* AlertController.swift */; };
 		36D403FB3ADFFE051ABAB2EF /* Pods_MyFinanceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F973707A8A92B61F227AF6E /* Pods_MyFinanceUITests.framework */; };
@@ -43,27 +43,6 @@
 			remoteGlobalIDString = 2951505E1FAF9F8200A6107B;
 			remoteInfo = MyFinance;
 		};
-		2964D4B11FBDB5B20053767A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2964D4AC1FBDB5B10053767A /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 65AD9E95D9ED4DC0BD73A743;
-			remoteInfo = Charts;
-		};
-		2964D4B31FBDB5B20053767A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2964D4AC1FBDB5B10053767A /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1CBBC58C6CE1EBEE9852CE41;
-			remoteInfo = ChartsTests;
-		};
-		2964D4BA1FBDB6580053767A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2964D4AC1FBDB5B10053767A /* Charts.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = A58A4ED274A941CA248EA921;
-			remoteInfo = Charts;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -73,7 +52,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2964D4B91FBDB6580053767A /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -86,6 +64,8 @@
 		290043F31FB228B1007532AF /* MYFConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYFConstants.swift; sourceTree = "<group>"; };
 		290043F51FB228C7007532AF /* MYFConvinience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYFConvinience.swift; sourceTree = "<group>"; };
 		290043F71FB22913007532AF /* GCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
+		2916F2D81FBEFA21001A23D2 /* CubicChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubicChart.swift; sourceTree = "<group>"; };
+		2916F2DA1FBEFA42001A23D2 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		2951505F1FAF9F8200A6107B /* MyFinance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFinance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		295150621FAF9F8200A6107B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		295150641FAF9F8200A6107B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -100,7 +80,6 @@
 		295150811FAF9F8300A6107B /* MyFinanceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyFinanceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		295150851FAF9F8300A6107B /* MyFinanceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFinanceUITests.swift; sourceTree = "<group>"; };
 		295150871FAF9F8300A6107B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2964D4AC1FBDB5B10053767A /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../../../../Downloads/Charts-master-2/Charts.xcodeproj"; sourceTree = "<group>"; };
 		29C78C6F1FB334340028FB9D /* Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 		29C78C721FB339AE0028FB9D /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		31BC0BECB29C34911F68D6F6 /* Pods-MyFinanceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFinanceTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFinanceTests/Pods-MyFinanceTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -118,7 +97,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2964D4B81FBDB6580053767A /* Charts.framework in Frameworks */,
 				F2985558C4BF5BEA63961A6E /* Pods_MyFinance.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -156,6 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				295150641FAF9F8200A6107B /* ViewController.swift */,
+				2916F2D81FBEFA21001A23D2 /* CubicChart.swift */,
+				2916F2DA1FBEFA42001A23D2 /* ChartViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -208,7 +188,6 @@
 		295150561FAF9F8200A6107B = {
 			isa = PBXGroup;
 			children = (
-				2964D4AC1FBDB5B10053767A /* Charts.xcodeproj */,
 				295150611FAF9F8200A6107B /* MyFinance */,
 				295150791FAF9F8300A6107B /* MyFinanceTests */,
 				295150841FAF9F8300A6107B /* MyFinanceUITests */,
@@ -261,15 +240,6 @@
 			path = MyFinanceUITests;
 			sourceTree = "<group>";
 		};
-		2964D4AD1FBDB5B10053767A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2964D4B21FBDB5B20053767A /* Charts.framework */,
-				2964D4B41FBDB5B20053767A /* ChartsTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		4CCD1D75B508D083899D2900 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,7 +271,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				2964D4BB1FBDB6580053767A /* PBXTargetDependency */,
 			);
 			name = MyFinance;
 			productName = MyFinance;
@@ -387,12 +356,6 @@
 			mainGroup = 295150561FAF9F8200A6107B;
 			productRefGroup = 295150601FAF9F8200A6107B /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 2964D4AD1FBDB5B10053767A /* Products */;
-					ProjectRef = 2964D4AC1FBDB5B10053767A /* Charts.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				2951505E1FAF9F8200A6107B /* MyFinance */,
@@ -401,23 +364,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		2964D4B21FBDB5B20053767A /* Charts.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Charts.framework;
-			remoteRef = 2964D4B11FBDB5B20053767A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2964D4B41FBDB5B20053767A /* ChartsTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = ChartsTests.xctest;
-			remoteRef = 2964D4B31FBDB5B20053767A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2951505D1FAF9F8200A6107B /* Resources */ = {
@@ -608,6 +554,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				290043F81FB22913007532AF /* GCD.swift in Sources */,
+				2916F2D91FBEFA21001A23D2 /* CubicChart.swift in Sources */,
 				29C78C731FB339AE0028FB9D /* AlertController.swift in Sources */,
 				290043F41FB228B1007532AF /* MYFConstants.swift in Sources */,
 				295150651FAF9F8200A6107B /* ViewController.swift in Sources */,
@@ -616,6 +563,7 @@
 				295150631FAF9F8200A6107B /* AppDelegate.swift in Sources */,
 				2951506B1FAF9F8200A6107B /* MyFinance.xcdatamodeld in Sources */,
 				29C78C701FB334340028FB9D /* Type.swift in Sources */,
+				2916F2DB1FBEFA42001A23D2 /* ChartViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,11 +595,6 @@
 			isa = PBXTargetDependency;
 			target = 2951505E1FAF9F8200A6107B /* MyFinance */;
 			targetProxy = 295150821FAF9F8300A6107B /* PBXContainerItemProxy */;
-		};
-		2964D4BB1FBDB6580053767A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Charts;
-			targetProxy = 2964D4BA1FBDB6580053767A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -786,7 +729,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F69633B03D7602029666DE3E /* Pods-MyFinance.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3MGE8K5YK5;
@@ -803,7 +746,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B66FC2CC7A3185C5FE33F7E5 /* Pods-MyFinance.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3MGE8K5YK5;
