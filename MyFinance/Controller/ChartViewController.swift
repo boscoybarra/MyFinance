@@ -6,7 +6,7 @@
 //  Copyright © 2017 Bosco Ybarra. All rights reserved.
 //
 
-import UIKit
+import Charts
 
 protocol GetChartData {
     func getChartData(with dataPoints: [String], values: [String])

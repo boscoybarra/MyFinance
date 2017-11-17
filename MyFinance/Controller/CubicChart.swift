@@ -8,8 +8,12 @@
 
 import UIKit
 import Charts
+import ChartsRealm
 
 class CubicChart: UIView {
+    
+    // Chart COlor
+    let electricGreen = UIColor(hue: 0.3361, saturation: 1, brightness: 1, alpha: 1.0)
     
     // Cubic line graph properties
     let lineChartView = LineChartView()
@@ -92,9 +96,9 @@ class CubicChart: UIView {
         let chartData = LineChartData()
         chartData.addDataSet(chartDataSet)
         chartData.setDrawValues(true) // set to false if you don't want values above bar
-        chartDataSet.colors = [UIColor.themePink]
-        chartDataSet.setCircleColor(UIColor.themePink)
-        chartDataSet.circleHoleColor = UIColor.themePink
+        chartDataSet.colors = [electricGreen]
+        chartDataSet.setCircleColor(electricGreen)
+        chartDataSet.circleHoleColor = electricGreen
         chartDataSet.circleRadius = 4.0
         chartDataSet.mode = .cubicBezier
         chartDataSet.cubicIntensity = 0.2
@@ -103,7 +107,7 @@ class CubicChart: UIView {
         chartDataSet.valueFont = UIFont(name: "Helvetica", size: 12.0)!
         
         // Gradient Fill
-        let gradientColors = [UIColor.themePink.cgColor, UIColor.clear.cgColor] as CFArray
+        let gradientColors = [electricGreen.cgColor, UIColor.clear.cgColor] as CFArray
         let colorLocations: [CGFloat] = [1.0, 0.0] // positioning of gradient
         guard let gradient = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors, locations: colorLocations) else { print("gradient error"); return }
         chartDataSet.fill = Fill.fillWithLinearGradient(gradient, angle: 90.0)
@@ -113,7 +117,7 @@ class CubicChart: UIView {
         let formatter: ChartFormatter = ChartFormatter()
         formatter.setValues(values: dataPoints)
         let xaxis:XAxis = XAxis()
-        xaxis.valueFormatter = formatter
+        xaxis.valueFormatter = formatter as IAxisValueFormatter
         lineChartView.xAxis.labelPosition = .bottom
         lineChartView.xAxis.drawGridLinesEnabled = false // true if you want X-Axis grid lines
         lineChartView.xAxis.valueFormatter = xaxis.valueFormatter
