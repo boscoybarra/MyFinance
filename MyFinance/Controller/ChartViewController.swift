@@ -6,7 +6,10 @@
 //  Copyright © 2017 Bosco Ybarra. All rights reserved.
 //
 
+import Foundation
+import UIKit
 import Charts
+import ChartsRealm
 
 protocol GetChartData {
     func getChartData(with dataPoints: [String], values: [String])
@@ -15,6 +18,11 @@ protocol GetChartData {
 }
 
 class ChartViewController: UIViewController, GetChartData {
+    
+    
+    @IBOutlet weak var cubicChartView: CubicChart!
+    
+    
     
     // Chart data
     var workoutDuration = [String]()

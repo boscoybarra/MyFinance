@@ -12,7 +12,7 @@ import ChartsRealm
 
 class CubicChart: UIView {
     
-    // Chart COlor
+    // Chart Color
     let electricGreen = UIColor(hue: 0.3361, saturation: 1, brightness: 1, alpha: 1.0)
     
     // Cubic line graph properties

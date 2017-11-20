@@ -19,7 +19,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var bitcoinValueLabel: UILabel!
     @IBOutlet weak var bitcoinCashValueLabel: UILabel!
     @IBOutlet weak var etherValueLabel: UILabel!
-
+    
+    
     
     func scheduledTimerWithTimeInterval(){
         // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
