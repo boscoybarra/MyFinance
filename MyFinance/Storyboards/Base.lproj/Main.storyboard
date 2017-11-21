@@ -97,30 +97,32 @@
             </objects>
             <point key="canvasLocation" x="2807.1999999999998" y="133.5832083958021"/>
         </scene>
-        <!--Chart View Controller-->
+        <!--Checker View Controller-->
         <scene sceneID="NU5-uX-iT5">
             <objects>
-                <viewController id="Gml-1c-PHf" customClass="ChartViewController" customModule="MyFinance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Gml-1c-PHf" customClass="CheckerViewController" customModule="MyFinance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u36-ey-wss">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cfj-oH-9sp" customClass="CubicChart" customModule="MyFinance">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qqK-D9-hn9" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="20" width="375" height="343"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="343" id="qqu-ux-SHn"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Cfj-oH-9sp" firstAttribute="bottom" secondItem="bpX-Eu-gXG" secondAttribute="bottom" id="0qD-eM-g5K"/>
-                            <constraint firstAttribute="trailing" secondItem="Cfj-oH-9sp" secondAttribute="trailing" id="0tF-VV-iTZ"/>
-                            <constraint firstItem="Cfj-oH-9sp" firstAttribute="leading" secondItem="u36-ey-wss" secondAttribute="leading" id="11v-2x-aom"/>
-                            <constraint firstItem="Cfj-oH-9sp" firstAttribute="top" secondItem="bpX-Eu-gXG" secondAttribute="top" id="NA5-zL-wtt"/>
+                            <constraint firstItem="qqK-D9-hn9" firstAttribute="leading" secondItem="bpX-Eu-gXG" secondAttribute="leading" id="2bY-vi-Pa0"/>
+                            <constraint firstItem="bpX-Eu-gXG" firstAttribute="trailing" secondItem="qqK-D9-hn9" secondAttribute="trailing" id="7hx-ZD-avW"/>
+                            <constraint firstItem="qqK-D9-hn9" firstAttribute="top" secondItem="bpX-Eu-gXG" secondAttribute="top" id="LMl-5m-XNl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bpX-Eu-gXG"/>
                     </view>
                     <connections>
-                        <outlet property="cubicChartView" destination="Cfj-oH-9sp" id="3de-A3-dKt"/>
+                        <outlet property="pieVIew" destination="qqK-D9-hn9" id="tUq-jB-oEb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lhJ-cj-wcc" userLabel="First Responder" sceneMemberID="firstResponder"/>

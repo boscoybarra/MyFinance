@@ -1,27 +1,19 @@
 //
-//  ChartViewController.swift
+//  CheckerViewController.swift
 //  MyFinance
 //
-//  Created by J B on 11/17/17.
+//  Created by J B on 11/21/17.
 //  Copyright © 2017 Bosco Ybarra. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import Charts
 import ChartsRealm
 
-protocol GetChartData {
-    func getChartData(with dataPoints: [String], values: [String])
-    var workoutDuration: [String] {get set}
-    var beatsPerMinute: [String] {get set}
-}
+class CheckerViewController: UIViewController {
+    
 
-class ChartViewController: UIViewController, GetChartData {
-    
-    
-    
-    
+    @IBOutlet weak var pieVIew: PieChartView!
     
     
     // Chart data
@@ -54,8 +46,8 @@ class ChartViewController: UIViewController, GetChartData {
     // Chart options
     
 //    func cubicChart() {
-//        let cubicChart = cubicChart(frame: CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height))
-//        cubicChart.delegate = self
+//        let pieView = CubicChart(frame: CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: self.view.frame.height))
+//        cubicChart.delegate = self as! GetChartData
 //        self.view.addSubview(cubicChart)
 //    }
     
@@ -67,6 +59,8 @@ class ChartViewController: UIViewController, GetChartData {
 }
 
 // MARK: - ChartFormatter required to config x axis
+
+
 
 //public class ChartFormatter: NSObject, IAxisValueFormatter {
 //
@@ -81,17 +75,14 @@ class ChartViewController: UIViewController, GetChartData {
 //    }
 //}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+//    @IBAction func addValues(_ sender: Any) {
+//        // Make sure there is an inputTable
+//        guard let inputTable = piewView.inputTable else {
+//            return
+//        }
+//        // We create an array of values
+//        let values: [Double] = inputTable.rows.map {_ in return Double(arc4random_uniform(100))}
+//        inputTable.addColumn("col #\(inputTable.columnNames.count + 1)", rowValues: values)
+//    }
+    
 
