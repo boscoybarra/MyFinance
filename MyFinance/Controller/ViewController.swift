@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import Charts
 
 class ViewController: UIViewController {
     
     // MARK: Properties
     
     var timer = Timer()
+    var workoutDuration: [String]!
     
     // MARK: Outlets
     
@@ -20,6 +22,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var bitcoinCashValueLabel: UILabel!
     @IBOutlet weak var etherValueLabel: UILabel!
     
+    @IBOutlet weak var barChartView: BarChartView!
     
     
     func scheduledTimerWithTimeInterval(){
@@ -30,7 +33,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getCrypto()
+        populateChartData()
         scheduledTimerWithTimeInterval()
+        
     }
     
     @objc fileprivate func getCrypto() {
@@ -49,6 +54,37 @@ class ViewController: UIViewController {
         self.etherValueLabel.text = etherCoin
         }
     }
- 
+    
+    // Populate data
+    func populateChartData() {
+        workoutDuration = ["1","2","3","4","5","6","7","8","9","10"]
+        let beatsPerMinute = [76.0, 150.0, 160.0, 180.0, 195.0, 195.0, 180.0, 164.0, 136.0, 112.0]
+        self.getChartData(dataPoints: workoutDuration, values: beatsPerMinute)
+    }
+    
+    // Conform to protocol
+    func getChartData(dataPoints: [String], values: [Double]) {
+        
+        barChartView.noDataText = "You need to provide data for the chart"
+        
+        var dataEntries: [BarChartDataEntry] = []
+        var counter = 0.0
+        
+        for i in 0..<dataPoints.count {
+            counter += 1.0
+            let dataEntry = BarChartDataEntry(x: values[i], y: counter)
+            dataEntries.append(dataEntry)
+        }
+        
+        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Time")
+        let chartData = BarChartData()
+        chartData.addDataSet(chartDataSet)
+        barChartView.data = chartData
+        chartDataSet.colors = ChartColorTemplates.colorful()
+        
+        barChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        
+    }
+    
 }
 
